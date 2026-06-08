@@ -13,6 +13,20 @@ from django.utils import timezone
 
 
 
+from .models import Doctor, Treatment  # Import your models
+
+def patients_view(request):
+    doctors = Doctor.objects.all()  # Get all doctors
+    treatments = Treatment.objects.all()  # Get all treatments
+    
+    context = {
+        'doctors': doctors,
+        'treatment': treatments,  # Note: use 'treatment' to match template loop
+        # ... other context variables
+    }
+    return render(request, 'partials/patients.html', context)
+
+
 
 @login_required
 def patients_table_body(request):
@@ -84,17 +98,31 @@ def patients_table_body(request):
     
     return render(request, "ext/patients_data.html", context)
 
+# class PatientsPartialView(LoginRequiredMixin, TemplateView):
+#     template_name = 'partials/patients.html'
+#     def get(self,request):
+#         context={
+#             "labdetails":labdetails.objects.all().order_by("-id"),
+#         "labtest":labtest.objects.all().order_by("-id")
+#         }
+#         return render(request,self.template_name,context)
+   
+    
 class PatientsPartialView(LoginRequiredMixin, TemplateView):
     template_name = 'partials/patients.html'
     def get(self,request):
         context={
-            "labdetails":labdetails.objects.all().order_by("-id"),
-        "labtest":labtest.objects.all().order_by("-id")
+            "labdetails": labdetails.objects.all().order_by("-id"),
+            "labtest": labtest.objects.all().order_by("-id"),
+            "doctors": Doctor.objects.all(),  # ADD THIS
+            "treatment": Treatment.objects.all()  # ADD THIS
         }
         return render(request,self.template_name,context)
-   
     
-
+    
+    
+    
+    
 class Patientsdatasave(LoginRequiredMixin, TemplateView):
     def post(self, request):
         first_name = request.POST.get('first_name') or ''
