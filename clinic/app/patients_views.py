@@ -96,14 +96,16 @@ def patients_table_body(request):
         
     }
     
-    return render(request, "ext/patients_data.html", context)
+    return render(request, "ext/patients/patients_data.html", context)
 
 class PatientsPartialView(LoginRequiredMixin, TemplateView):
     template_name = 'partials/patients.html'
     def get(self,request):
         context={
             "labdetails":labdetails.objects.all().order_by("-id"),
-        "labtest":labtest.objects.all().order_by("-id")
+            "labtest":labtest.objects.all().order_by("-id"),
+            "doctors": Doctor.objects.all(),
+            "treatment": Treatment.objects.all()
         }
         return render(request,self.template_name,context)
     
