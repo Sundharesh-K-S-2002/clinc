@@ -31,24 +31,33 @@
             <div class="space-y-8 sm:space-y-10">
 
               <!-- Section 1: Patient Selection/Info -->
-              <section class="space-y-6">
+               <section class="space-y-6">
                 <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
                   <i data-lucide="user" class="w-3.5 h-3.5"></i> Patient Information
                 </h4>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
                   <div class="sm:col-span-2">
-                    <label class="label-styled">Full Name <span class="text-red-500">*</span></label>
-                    <input type="text" id="patientName" name="patientName" class="input-styled" placeholder="Start typing name..." readonly
+                    <label class="label-styled">Full Name :  <span class="text-red-500">*</span></label>
+                    <input type="text" id="patientName" name="patientName" class="input-styled border-0 border-b-2 border-black rounded-none focus:outline-none focus:ring-0 focus:border-teal-500" placeholder="Start typing name..." readonly
                       required>
                   </div>
                   <div>
-                    <label class="label-styled">Date of Visit</label>
-                    <input type="date" id="visitDate" name="visitDate" class="input-styled" readonly>
+                    <label class="label-styled">Date of Visit : </label>
+                    <input type="date" id="visitDate" name="visitDate" class="input-styled border-0 border-b-2 border-black rounded-none focus:outline-none focus:ring-0 focus:border-teal-500"  readonly>
                   </div>
-                  <div>
-                    <label class="label-styled">Age / Gender</label>
-                    <input type="text" id="patientAgeGender" name="patientAgeGender" class="input-styled" placeholder="e.g. 24 / Male" readonly>
+                  <div class="flex items-center gap-2">
+                      <label class="label-styled">Age / Gender :</label>
+
+                      <input
+                          type="text"
+                          id="patientAgeGender"
+                          name="patientAgeGender"
+                          value="24 / Male"
+                          readonly
+                          class="border-0 border-b-2 border-black bg-transparent px-0 py-0 rounded-none focus:outline-none focus:ring-0"
+                          style="width: calc(9ch + 4px);"
+                      >
                   </div>
 
                   <!-- Allergies Input with Clear Field Button -->
@@ -58,7 +67,7 @@
                     <div class="relative">
                       <input type="text" id="patientAllergies"
                         name="patientAllergies"
-                        class="w-full border border-red-100 rounded-xl px-4 py-3 text-sm text-red-800 bg-red-50/30 transition focus:ring-2 focus:ring-red-400 outline-none placeholder-red-300"
+                        class="w-full border border-red-400 rounded-xl px-4 py-3 text-sm text-red-800 bg-red-50/30 transition focus:ring-2 focus:ring-red-400 outline-none placeholder-red-300"
                         placeholder="List allergies or type 'NONE'">
                       <button type="button" onclick="document.getElementById('patientAllergies').value = ''"
                         class="absolute right-3 top-1/2 -translate-y-1/2 text-red-300 hover:text-red-500 transition">
@@ -70,15 +79,18 @@
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 pt-2">
                   <div>
-                    <label class="label-styled">Chief Complaint</label>
-                    <input type="text" id="chiefComplaint"  name="chiefComplaint" class="input-styled" placeholder="Primary issue">
+                    <label class="label-styled">Chief Complaint : </label>
+                    <input type="text" id="chiefComplaint"  name="chiefComplaint" class="input-styled border-0 border-b-2 border-black rounded-none focus:outline-none focus:ring-0 focus:border-teal-500" placeholder="Primary issue">
                   </div>
                   <div>
-                    <label class="label-styled">Diagnosis</label>
-                    <input type="text" id="diagnosis" name="diagnosis" class="input-styled" placeholder="Clinical diagnosis">
+                    <label class="label-styled">Diagnosis : </label> 
+                    <input type="text" id="diagnosis" name="diagnosis" class="input-styled border-0 border-b-2 border-black rounded-none focus:outline-none focus:ring-0 focus:border-teal-500" placeholder="Clinical diagnosis">
                   </div>
                 </div>
-              </section>
+              </section> 
+
+              <!-- Patient Information -->
+
 
               <!-- Section 2: Medicines -->
               <section class="space-y-6">
@@ -145,7 +157,7 @@
                 <label class="label-styled flex items-center gap-2 text-xs">
                   <i data-lucide="message-square" class="w-3.5 h-3.5 text-slate-400"></i> Advice & Instructions
                 </label>
-                <textarea id="advice" name="advice" rows="3" class="input-styled resize-none"
+                <textarea id="advice" name="advice" rows="3" class="w-full h-20 p-4 border rounded-xl"
                   placeholder="Enter post-operative instructions..."></textarea>
               </section>
 
