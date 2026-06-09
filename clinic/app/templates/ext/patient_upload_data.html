@@ -17,8 +17,8 @@
                             <p class="text-sm font-bold text-slate-800 truncate" title="{{ upload.original_name }}">{{ upload.original_name }}</p>
                             <p class="text-[11px] text-slate-500 mt-1">
                                 {{ upload.file_type|upper }}
-                                • {{ upload.size_bytes|filesizeformat }}
-                                • {{ upload.created_at|date:"M d, Y h:i A" }}
+                                {{ upload.size_bytes|filesizeformat }}
+                                {{ upload.created_at|date:"M d, Y h:i A" }}
                             </p>
                             {% if upload.uploader_username %}
                             <p class="text-[11px] text-slate-400 mt-0.5">By {{ upload.uploader_username }}</p>

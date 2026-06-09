@@ -17,7 +17,7 @@ from django.utils import timezone
 @login_required
 def patients_table_body(request):
     # Base queryset
-    patients_qs = Patient.objects.all().order_by('-created_at')
+    patients_qs = Patient.objects.all().order_by( '-updated_at')
 
     # Filters from query params
     q = request.GET.get('q', '').strip()
